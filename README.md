@@ -1,6 +1,3 @@
-# react- project
-
-
 # React Project - member related feature
 <a href="https://herocards-react-project.netlify.app/">Demo</a><br><br>
 
