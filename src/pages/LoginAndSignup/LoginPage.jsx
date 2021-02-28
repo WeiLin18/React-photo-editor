@@ -6,7 +6,6 @@ import {
   FormControl,
   Input,
   useToast,
-  Text
 } from "@chakra-ui/react";
 import { Link, useHistory } from "react-router-dom";
 import { loginTheMember, getUserList } from "../../utils";
