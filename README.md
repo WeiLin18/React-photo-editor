@@ -1,3 +1,3 @@
 # React-hero-cards
-demo - https://herocards-react-project.netlify.app/heros
-Created with CodeSandbox
+<a href="https://herocards-react-project.netlify.app/">Demo</a><br>
+Description: edit heros' skills and update <br>
