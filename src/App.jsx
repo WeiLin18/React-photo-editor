@@ -4,8 +4,7 @@ import {
   BrowserRouter,
   Route,
   Switch,
-  Redirect,
-  useHistory
+  Redirect
 } from "react-router-dom";
 import Header from "./pages/layout/Header";
 import LoginPage from "./pages/LoginAndSignup/LoginPage";
@@ -37,7 +36,6 @@ export default function App() {
       userName: thisUserName
     });
   };
-  const history = useHistory();
   const handleClearLogin = () => {
     setLoginState({
       isLogin: false,
