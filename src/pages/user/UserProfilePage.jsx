@@ -119,7 +119,7 @@ const UserProfilePage = ({
       alert("請先登入");
     } else if (loginUserInfo.userId !== userId) {
       alert("你沒權限刪除此人");
-    } else if (loginUserState.isLogin && confirm("確定刪除？")) {
+    } else if (loginUserState.isLogin && window.confirm("確定刪除？")) {
       deleteTheMember(userId, loginUserState.authToken)
         .then((res) => {
           console.log(res);
