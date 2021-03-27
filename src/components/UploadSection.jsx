@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./common/Button";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
@@ -19,6 +19,9 @@ const StyledSection = styled.section`
   .square {
     border-radius: 4px;
   }
+  .avatar {
+    max-width: 300px;
+  }
   .upload {
     position: relative;
     display: inline-block;
@@ -35,17 +38,23 @@ const StyledSection = styled.section`
   }
 `;
 const UploadSection = ({ className }) => {
+  const [imgURL, setImgURL] = useState(null);
   const frame = useSelector((state) => state.frame);
   const handleUploadImage = (e) => {
     let file = e.target.files[0];
     console.log(file);
+    let readFile = new FileReader();
+    readFile.readAsDataURL(file);
+    readFile.onload = () => {
+      setImgURL(readFile.result);
+    };
   };
   return (
     <StyledSection
       className={`${className} d-flex flex-column align-items-center justify-content-center p-3`}
     >
       <div className={`${frame} frame mb-3 mb-lg-5`}>
-        <img />
+        {imgURL && <img src={imgURL} alt="avatar" className="avatar" />}
       </div>
       <div className="upload">
         <Button>上傳圖片</Button>
