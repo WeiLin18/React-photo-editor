@@ -7,8 +7,8 @@ import "../style/styles.scss";
 
 const StyledSection = styled.section`
   .frame {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
     background-color: #fff;
     border: 1px dashed ${color.primary};
     overflow: hidden;
@@ -42,9 +42,9 @@ const UploadSection = ({ className }) => {
   };
   return (
     <StyledSection
-      className={`${className} d-flex flex-column align-items-center justify-content-center h-100`}
+      className={`${className} d-flex flex-column align-items-center justify-content-center p-3`}
     >
-      <div className={`${frame} frame mb-5`}>
+      <div className={`${frame} frame mb-3 mb-lg-5`}>
         <img />
       </div>
       <div className="upload">
