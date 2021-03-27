@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import Button from "./common/Button";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { color } from "../style/variables";
 import "../style/styles.scss";
@@ -8,12 +9,17 @@ const StyledSection = styled.section`
   .frame {
     width: 200px;
     height: 200px;
-    border-radius: 4px;
     background-color: #fff;
     border: 1px dashed ${color.primary};
+    overflow: hidden;
+  }
+  .circle {
+    border-radius: 50%;
+  }
+  .square {
+    border-radius: 4px;
   }
   .upload {
-    outline: 1px solid #f00;
     position: relative;
     display: inline-block;
 
@@ -29,6 +35,7 @@ const StyledSection = styled.section`
   }
 `;
 const UploadSection = ({ className }) => {
+  const frame = useSelector((state) => state.frame);
   const handleUploadImage = (e) => {
     let file = e.target.files[0];
     console.log(file);
@@ -37,7 +44,7 @@ const UploadSection = ({ className }) => {
     <StyledSection
       className={`${className} d-flex flex-column align-items-center justify-content-center h-100`}
     >
-      <div className="frame mb-3">
+      <div className={`${frame} frame mb-5`}>
         <img />
       </div>
       <div className="upload">
@@ -46,7 +53,7 @@ const UploadSection = ({ className }) => {
           type="file"
           id="theFile"
           className="upload__file"
-          accept="image/jpg,image/jpeg"
+          accept="image/*"
           onChange={handleUploadImage}
         />
       </div>
