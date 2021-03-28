@@ -18,13 +18,15 @@ const UploadSection = ({ className }) => {
   const [imgScale, setImgScale] = useState("1");
   const frame = useSelector((state) => state.frame);
   const handleImageUpload = (e) => {
-    setImgURL(null);
+    // console.log(e.target.files);
+    if (imgURL !== null) {
+      setImgURL(null);
+    }
     let file = e.target.files[0];
     let readFile = new FileReader();
-    readFile.readAsDataURL(file);
+    file && readFile.readAsDataURL(file);
     readFile.onload = () => {
       setImgURL(readFile.result);
-      readFile.readAsDataURL(file);
     };
   };
 
@@ -49,7 +51,6 @@ const UploadSection = ({ className }) => {
         )}
       </div>
       <div className="upload mb-3">
-        <Button>上傳圖片</Button>
         <input
           type="file"
           id="theFile"
@@ -57,6 +58,7 @@ const UploadSection = ({ className }) => {
           accept="image/*"
           onChange={handleImageUpload}
         />
+        <Button>上傳圖片</Button>
       </div>
       <div>
         <label className="d-block mb-1 text-center">size</label>
@@ -89,7 +91,7 @@ const StyledSection = styled.section`
     border-radius: 4px;
   }
   .avatar {
-    width: 120px;
+    width: 140px;
     position: absolute;
   }
   .upload {
@@ -104,6 +106,9 @@ const StyledSection = styled.section`
       height: 100%;
       opacity: 0;
       cursor: pointer;
+      :hover + button {
+        background-color: #208bba;
+      }
     }
   }
 `;
