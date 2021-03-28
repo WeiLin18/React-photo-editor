@@ -30,6 +30,7 @@ const StyledDiv = styled.div`
   }
   @media (max-width: 450px) {
     flex-wrap: nowrap;
+    height: auto;
     padding-left: 16px;
     padding-right: 16px;
     .upload-section,

@@ -1,7 +1,8 @@
 import { createStore } from "redux";
 
 const initState = {
-  frame: "square"
+  frame: "square",
+  log: "square"
 };
 
 const CHANGE_FRAME = "CHANGE_FRAME";
@@ -10,7 +11,8 @@ export const changeFrame = (frame) => {
   return {
     type: CHANGE_FRAME,
     payload: {
-      frame: frame
+      frame: frame,
+      log: frame
     }
   };
 };
@@ -19,7 +21,8 @@ const reducer = (state = initState, action) => {
     case CHANGE_FRAME:
       return {
         ...state,
-        frame: action.payload.frame
+        frame: action.payload.frame,
+        log: (state.log += ` > ${action.payload.log}`)
       };
     default:
       return state;
